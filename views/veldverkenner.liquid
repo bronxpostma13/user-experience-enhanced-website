@@ -1,0 +1,78 @@
+{% render 'partials/head4.liquid' %}
+<header class="topbar">
+    <h1>Veldverkenner <span class="progress">0/14</span> 🎁</h1>
+</header>
+
+<!-- De kaart bruikbaar en als achtergrond maken -->
+<main class="map-wrapper">
+
+<section class="map-scroll">
+
+<section class="map">
+
+<img src="/assets/veldkaart.png" alt="Interactieve kaart met verschillende zones">
+<!-- /////////////////////-->
+
+<!-- pins voor opdrachten-->
+{% for zone in zone %}
+    {% if zone.id == 1 %}
+<a href="/plant_opdracht/{{ zone.slug }}" class="pin" style="top:22%; left:45%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+    {% if zone.id == 5 %}
+    <a href="/plant_opdracht/{{ zone.slug }}" class="pin" style="top:44%; left:85%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+     {% if zone.id == 6 %}
+<a href="/plant_opdracht/{{ zone.slug }}" class="pin" style="top:44%; left:60%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+    {% if zone.id == 8 %}
+   <a href="/plant_opdracht/{{ zone.slug }}" class="pin" style="top:80%; left:85%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+     {% comment %} {% if zone.id == 5 %}
+<a href="/plant_opdracht" class="pin" style="top:30%; left:46%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+    {% if zone.id == 6 %}
+    <a href="/" class="pin" style="top:46%; left:21%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+
+     {% if zone.id == 7 %}
+<a href="/" class="pin" style="top:12%; left:64%;" aria-label="Zone opdracht"></a>
+    {% endif %}
+    {% if zone.id == 8 %}
+   <a href="/" class="pin" style="top:80%; left:85%;" aria-label="Zone opdracht"></a>
+    {% endif %} {% endcomment %}
+{% endfor %}
+
+
+</section>
+
+</section>
+<!-- floating buttons -->
+<div class="side-buttons">
+
+<a href="#" class="circle-btn" aria-label="Bekijk zones">
+<span>☰</span>
+<p>Zones</p>
+</a>
+
+<a href="#" class="circle-btn" aria-label="Uitleg">
+<span>?</span>
+<p>Uitleg</p>
+</a>
+
+</div>
+<!-- /////////////////////-->
+
+
+
+</main>
+
+
+
+
+{% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}

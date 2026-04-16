@@ -1,0 +1,69 @@
+{% render 'partials/head7.liquid' %}
+<section class="page-wrapper">
+
+    <!-- Header -->
+    
+     <div class="sticky-top">
+     <header class="header">
+  <a class="back" href="/nieuws">← Terug</a>
+  <h1>Veld nieuws</h1>
+</header>
+</div>
+    <!-- Article -->
+    <main class="article">
+
+      <div class="article-image-wrap">
+        <img src="https://fdnd-agency.directus.app/assets/{{ news.image }}" width="300" height="400" alt="nieuws">
+      </div>
+
+      <div class="article-body">
+        <span class="article-date">Geplaatst: {{ news.date }}</span>
+        <h2 class="article-title">{{ news.title }}</h2>
+        <p class="article-text">  {{ news.body }} </p>
+      </div>
+
+    </main>
+     
+     <section class="reacties-section">
+         <article class="reactie-form-placeholder">
+      <h2 class="reacties-titel" >Voeg jou reactie toe</h2>
+      <form action="/nieuws_detail/{{ news.slug }}" method="POST">
+        <label >
+            Naam:
+            <input type="text" name="name"  required>
+        </label>
+<br>
+        <label>
+        Reactie:
+        <textarea name="comment" maxlength="95" class="placeholder-textarea" required></textarea>
+        </label>
+
+        <input type="hidden" name="id" value="{{ news.id }}">
+        <label>
+            <input type="submit" value="Versturen" class="placeholder-btn">
+      </label>
+      </form>
+    </article>
+
+    <h2 class="reacties-title">Reacties</h2>
+
+    <!-- Bestaande reacties -->
+    <section class="reacties-list">
+   {% for reactie in reactie %}
+      <article class="reactie-card">
+        <div class="reactie-header">
+          
+          <div class="reactie-meta">
+            <span class="reactie-naam">{{ reactie.name }}</span>
+            <span class="reactie-datum">18 november 2025</span>
+          </div>
+        </div>
+        <p class="reactie-tekst">{{ reactie.comment }}</p>
+      </article>
+       {% endfor %}
+      
+    </section>
+  </section>
+  </section>
+    {% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}

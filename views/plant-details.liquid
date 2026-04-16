@@ -1,0 +1,44 @@
+{% render 'partials/head4.liquid' %}
+
+
+
+<article class="card" aria-labelledby="plant-title">
+    <form action="/" method="POST" class="form">
+      <h1>{{ vraag.name }}</h1>
+  <img src="https://fdnd-agency.directus.app/assets/{{ vraag.in_bloom }}" width="200" alt="plant">
+
+  <p>{{ vraag.quest_text }}</p>
+
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="answer" value="geen">
+        hij heeft geen vrucht
+      </label>
+    </li>
+
+    <li>
+      <label>
+        <input type="radio" name="answer" value="kaaspunt">
+        kaas punt
+      </label>
+    </li>
+
+    <li>
+      <label>
+        <input type="radio" name="answer" value="kaaswiel">
+        kaaswiel
+      </label>
+    </li>
+  </ul>
+
+  <button type="submit" class="beantwoorden">
+    Antwoord checken
+  </button>
+</form>
+      
+    </article>
+
+
+{% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}

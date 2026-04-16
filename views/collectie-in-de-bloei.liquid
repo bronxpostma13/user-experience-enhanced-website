@@ -1,0 +1,29 @@
+{% render 'partials/head3.liquid' %}
+
+<header class="page-header">
+    <a href="/collectie" class="back-button">← Terug</a>
+    <h1>In de bloei</h1>
+    <p class="progress">14/14</p>
+</header>
+
+<main>
+
+<section class="plant-grid" aria-label="Planten collectie">
+
+ {% for plant in plant %}
+<a href="/bloem/{{ plant.id }}" class="plant-card green">
+<h2> {{ plant.latin }}</h2>
+<img src="/assets/2447179.jpg" alt="Teunisbloem plant in het veld">
+</a>
+     {% endfor %}
+
+{% for plant in plant %}
+  
+{% endfor %}
+</section>
+
+</main>
+
+
+  {% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}

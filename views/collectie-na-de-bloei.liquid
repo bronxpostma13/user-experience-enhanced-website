@@ -1,0 +1,21 @@
+{% render 'partials/head3.liquid' %}
+
+<header class="page-header">
+  <a href="/collectie" class="back-button">← Terug</a>
+  <h1>Na de bloei</h1>
+  
+</header>
+
+<main>
+  <section class="plant-grid" aria-label="Planten collectie">
+    {% for plant in plant %}
+      <a href="/bloem/{{ plant.slug }}" class="plant-card green">
+        <h2>{{ plant.name }}</h2>
+        <img src="https://fdnd-agency.directus.app/assets/{{ plant.in_bloom }}" width="200" alt="plant">
+      </a>
+    {% endfor %}
+  </section>
+</main>
+
+{% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}

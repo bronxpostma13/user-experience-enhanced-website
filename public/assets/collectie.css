@@ -1,0 +1,192 @@
+:root {
+--background-color-1: #B3D686;
+--background-color-2: #F8F39B;
+--background-color-3: #D4C8E2;
+--background-color-4: #02ADE6;
+--background-color-5: #FDFDFD;
+--background-color-6: #353434;
+--background-color-7: #ECECEC;
+
+--text-color-1: #fff;
+--text-color-2: #000;
+
+--font-size-xl: 2.5rem;
+--font-size-l: 2rem;
+--font-size-m: 1.5rem;
+--font-size-sm: 1.3rem;
+--font-size-s: 1.12rem;
+--font-size-xs: 1rem;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: system-ui, sans-serif;
+background: var(--background-color-7);
+color: var(--text-color-2);
+line-height: 1.5;
+padding-bottom: 80px;
+}
+
+/* Header */
+
+.header {
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+padding: 20px;
+}
+
+.header h1 {
+font-size: var(--font-size-m);
+}
+
+.back {
+position: absolute;
+left: 20px;
+text-decoration: none;
+color: var(--text-color-2);
+font-size: var(--font-size-xs);
+}
+
+/* Layout */
+
+.container {
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+/* Cards */
+
+.card {
+border-radius: 16px;
+padding: 12px;
+}
+
+.card img {
+width: 100%;
+border-radius: 12px;
+display: block;
+}
+
+.card-content {
+padding: 12px;
+}
+
+.card h2 {
+font-size: var(--font-size-sm);
+margin-bottom: 6px;
+}
+
+.card p {
+font-size: var(--font-size-xs);
+margin-bottom: 16px;
+}
+
+/* Card kleuren */
+
+.card-purple {
+background: var(--background-color-3);
+}
+
+.card-green {
+background: var(--background-color-1);
+}
+
+/* Button */
+
+.button {
+display: block;
+background: var(--background-color-6);
+color: var(--text-color-1);
+text-align: center;
+padding: 14px;
+border-radius: 12px;
+text-decoration: none;
+font-size: var(--font-size-xs);
+}
+
+.button:hover,
+.button:focus {
+background: #1f1f1f;
+}
+
+/* Bottom navigation */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+
+display:flex;
+justify-content:space-evenly;
+
+
+background:var(--background-color-5);
+border-top:1px solid var(--background-color-7);
+padding:10px 0;
+
+}
+.nav-list{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+}
+
+.nav-item:hover{
+  color: #B3D686;
+}
+
+.nav-item{
+display:flex;
+flex-direction:column;
+
+align-items:center;
+text-decoration:none;
+color:var(--background-color-6);
+font-size:var(--font-size-xs);
+justify-self: space-evenly;
+}
+
+.nav-item span{
+font-size:0.75rem;
+margin-top:4px;
+}
+
+
+
+/* Laptop */
+
+@media (min-width: 768px) {
+
+.container {
+max-width: 900px;
+margin: auto;
+
+/* kaarten naast elkaar */
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+
+}
+
+.card {
+display: flex;
+flex-direction: column;
+}
+
+.card img {
+height: 200px;
+object-fit: cover;
+}
+
+}

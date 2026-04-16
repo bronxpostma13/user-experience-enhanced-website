@@ -1,0 +1,76 @@
+{% render 'partials/head.liquid' %}
+
+<header class="topbar">
+  <h1>Home</h1>
+</header>
+
+<main>
+  <section class="welcome">
+    <h2>Welkom Bronx</h2>
+  </section>
+
+  <section class="collection">
+    <h2 class="section-title">🌸 Bloemenveld collectie</h2>
+
+    <div class="collection-card">
+      {% comment %} Hier moet een if statement komen. Dus als de planten klaar zijn toon ze ander vul de fallback text hieronder in.  {% endcomment %}
+      <p>
+        Je hebt nog niks gespaard<br>
+        Start de <strong>Veldverkenner</strong> om meer te weten te komen over wat er groeit en je collectie aan te
+        vullen
+      </p>
+    </div>
+  </section>
+
+  <section class="news">
+    {% comment %} Dit moet een for each loop worden {% endcomment %}
+
+    <h2 class="section-title">📰 Veld Nieuws</h2>
+
+    <section class="news-scroll" role="list">
+      <a href="/" class="news-card" role="listitem">
+        <span class="tag">Bloemenveld</span>
+        <h3>De na bloei van de duizendblad</h3>
+
+        <img
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
+          alt="Duizendblad bloemen"
+        >
+
+        <p>De duizendblad is nog maar even in de bloei</p>
+      </a>
+
+      <a href="/" class="news-card" role="listitem">
+        <span class="tag">Bloemenveld</span>
+        <h3>Cola plant</h3>
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="">
+        <p>Cola planten vervangen</p>
+      </a>
+
+      <a href="/" class="news-card" role="listitem">
+        <span class="tag">Bloemenveld</span>
+        <h3>Nieuwe bloei</h3>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="">
+        <p>De bloemen staan weer open</p>
+      </a>
+
+      <a href="/" class="news-card" role="listitem">
+        <span class="tag">Bloemenveld</span>
+        <h3>Zomer update</h3>
+        <img src="https://images.unsplash.com/photo-1477511801984-4ad318ed9846" alt="">
+        <p>Veel insecten in het veld</p>
+      </a>
+
+      <a href="/" class="news-card" role="listitem">
+        <span class="tag">Bloemenveld</span>
+        <h3>Nieuwe planten</h3>
+        <img src="https://images.unsplash.com/photo-1477511801984-4ad318ed9846" alt="">
+        <p>Nieuwe soorten ontdekt</p>
+      </a>
+    </section>
+  </section>
+</main>
+
+
+{% render 'partials/nav.liquid' %}
+{% render 'partials/foot.liquid' %}
