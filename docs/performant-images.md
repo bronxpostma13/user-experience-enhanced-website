@@ -99,7 +99,7 @@ We hebben nu voornamelijk gekeken naar dezelfde afbeelding serveren op verschill
 
 🛠️ Maak een derde demo waarin je art direction toepast.
 
-### 👉 Opdracht: performant attributes
+### 👉 Opdracht: Performant attributes
 
 🛠️ Er zijn nog een aantal optimalisaties die je kunt toepassen om images nog meer performant te maken. Ga op zoek welke `attributen` (zijn er meerdere) je hiervoor kunt gebruiken en schrijf ze op het bord. Maak een issue en beschrijf daar waar je deze attributen wilt gaan toepassen.
 
