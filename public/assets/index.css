@@ -57,6 +57,9 @@ margin-bottom:28px;
 h2{
 margin-bottom:28px;
 }
+li{
+  list-style-type: none;
+}
 
 .section-title{
 font-size:var(--font-size-sm);
