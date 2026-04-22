@@ -54,6 +54,10 @@ section{
 margin-bottom:28px;
 }
 
+h2{
+margin-bottom:28px;
+}
+
 .section-title{
 font-size:var(--font-size-sm);
 margin-bottom:12px;
