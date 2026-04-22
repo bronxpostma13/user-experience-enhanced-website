@@ -27,47 +27,19 @@
 
     <h2 class="section-title">📰 Veld Nieuws</h2>
 
-    <section class="news-scroll" role="list">
-      <a href="/" class="news-card" role="listitem">
+    <ul class="news-scroll" role="list">
+      {%   for news in news  limit: 3 %}
+      <li href="/" class="news-card" role="listitem">
         <span class="tag">Bloemenveld</span>
-        <h3>De na bloei van de duizendblad</h3>
+        <h3> {{ news.title }}</h3>
 
-        <img
-          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
-          alt="Duizendblad bloemen"
-        >
+        <img src="https://fdnd-agency.directus.app/assets/{{ news.image }}" alt="placeholder plant">
 
-        <p>De duizendblad is nog maar even in de bloei</p>
-      </a>
-
-      <a href="/" class="news-card" role="listitem">
-        <span class="tag">Bloemenveld</span>
-        <h3>Cola plant</h3>
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="">
-        <p>Cola planten vervangen</p>
-      </a>
-
-      <a href="/" class="news-card" role="listitem">
-        <span class="tag">Bloemenveld</span>
-        <h3>Nieuwe bloei</h3>
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="">
-        <p>De bloemen staan weer open</p>
-      </a>
-
-      <a href="/" class="news-card" role="listitem">
-        <span class="tag">Bloemenveld</span>
-        <h3>Zomer update</h3>
-        <img src="https://images.unsplash.com/photo-1477511801984-4ad318ed9846" alt="">
-        <p>Veel insecten in het veld</p>
-      </a>
-
-      <a href="/" class="news-card" role="listitem">
-        <span class="tag">Bloemenveld</span>
-        <h3>Nieuwe planten</h3>
-        <img src="https://images.unsplash.com/photo-1477511801984-4ad318ed9846" alt="">
-        <p>Nieuwe soorten ontdekt</p>
-      </a>
-    </section>
+        <p> {{ news.body | truncate: 50 }}</p>
+        </li>
+      {% endfor %}
+      
+    </ul>
   </section>
 </main>
 

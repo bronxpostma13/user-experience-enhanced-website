@@ -186,7 +186,7 @@ justify-self: space-evenly;
 
 /* ACCESSIBILITY */
 
-a:focus{
+li:focus{
 outline:3px solid var(--background-color-1);
 outline-offset:2px;
 }

@@ -44,11 +44,11 @@ app.get('/', async function (request, response) {
  
   // Haal alle personen uit de WHOIS API op, van dit jaar, gesorteerd op id
  
-  const plantResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_plants')
+  const artikelResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news')
  
   // En haal daarvan de JSON op
-  const plantResponseJSON = await plantResponse.json()
-    response.render('index.liquid', {plant: plantResponseJSON.data})
+  const artikelResponseJSON = await  artikelResponse.json()
+    response.render('index.liquid', {news: artikelResponseJSON.data})
 })
 
 app.get('/veldverkenner', async function (request, response) {
