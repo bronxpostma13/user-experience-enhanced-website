@@ -12,15 +12,15 @@
     <!-- Article -->
     <main class="article">
 
-      <div class="article-image-wrap">
+      <section class="article-image-wrap">
         <img src="https://fdnd-agency.directus.app/assets/{{ news.image }}" width="300" height="400" alt="nieuws">
-      </div>
+      </section>
 
-      <div class="article-body">
+      <section class="article-body">
         <span class="article-date">Geplaatst: {{ news.date }}</span>
         <h2 class="article-title">{{ news.title }}</h2>
         <p class="article-text">  {{ news.body }} </p>
-      </div>
+      </section>
 
     </main>
      
@@ -40,7 +40,7 @@
 
         <input type="hidden" name="id" value="{{ news.id }}">
         <label>
-            <input type="submit" value="Versturen" class="placeholder-btn">
+            <button type="submit" value="Versturen" class="placeholder-btn"></button>
       </label>
       </form>
     </article>
@@ -48,21 +48,19 @@
     <h2 class="reacties-title">Reacties</h2>
 
     <!-- Bestaande reacties -->
-    <section class="reacties-list">
+    <ul class="reacties-list">
+    
    {% for reactie in reactie %}
-      <article class="reactie-card">
-        <div class="reactie-header">
-          
+      <li class="reactie-card">
           <div class="reactie-meta">
             <span class="reactie-naam">{{ reactie.name }}</span>
             <span class="reactie-datum">18 november 2025</span>
-          </div>
-        </div>
+       
         <p class="reactie-tekst">{{ reactie.comment }}</p>
-      </article>
+      </li>
        {% endfor %}
-      
-    </section>
+     
+      </ul>
   </section>
   </section>
     {% render 'partials/nav.liquid' %}
