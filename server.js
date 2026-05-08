@@ -101,7 +101,10 @@ app.get('/nieuws', async function (request, response) {
  
   // En haal daarvan de JSON op
   const artikelResponseJSON = await artikelResponse.json()
+  
     response.render('nieuws.liquid', {news: artikelResponseJSON.data})
+
+    
 
    
 
@@ -110,10 +113,11 @@ app.get('/nieuws', async function (request, response) {
 app.get('/nieuws_detail/:slug', async function (request, response) {
    
      const artikelResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news?filter[slug]='+ request.params.slug)
+     const artikelResponseJSON = await artikelResponse.json()
+     
+      const reactieResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news_comments?sort=-date_created&limit=30')
+  const reactieResponseJSON = await reactieResponse.json()
 
- 
-  
-  const artikelResponseJSON = await artikelResponse.json()
     response.render('nieuws-details.liquid', {news: artikelResponseJSON.data[0], reactie: reactieResponseJSON.data })
 });
 
@@ -153,6 +157,8 @@ app.get('/plant_opdracht/:slug', async function (request, response) {
   const vraagResponseJSON = await vraagResponse.json()
     response.render('plant-details.liquid', {vraag: vraagResponseJSON.data[0] })
 })
+
+
 
 app.get('/bloem/:slug', async function (request, response) {
    // Render index.liquid uit de Views map
@@ -197,6 +203,18 @@ app.post('/plant_opdracht', async (request, response) => {
     // response.redirect(`/nieuws/${request.params.slug}`) // als de post gelukt is eeen redirect naar de get route VAN HET NIEUWA ARTIKEL
     response.redirect(`/nieuws/${request.params.slug}#${postJSON.data.id}`)
 })
+
+app.post('/nieuws/:id/:slug/verwijder', async (request, response) => {
+  const commentId =  request.body.comment_id
+  const slug = request.params.slug
+ 
+  await fetch(`https://fdnd-agency.directus.app/items/frankendael_news_comments/${commentId}`, {
+      method: 'DELETE'
+    });
+ 
+   response.redirect(`/nieuws_detail/${slug}#reacties-list`) // als de post gelukt is een redirect naar de get route VAN HET NIEUWS ARTIKEL
+})
+
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80

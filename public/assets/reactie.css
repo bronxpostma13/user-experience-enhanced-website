@@ -76,6 +76,22 @@ body {
   gap: 0.6rem;
 }
 
+.delete-knop {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  color: var(--color-accent);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-knop:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
 .reactie-header {
   display: flex;
   align-items: center;
@@ -148,12 +164,44 @@ body {
   background-color: #f9f9f9;
 }
 
-.placeholder-btn {
-  width: 120px;
-  height: 40px;
-  border-radius: 8px;
+button {
+  width: 140px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-accent);
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Loading state */
+button.loading {
   background-color: var(--color-accent-light);
-  border: 1.5px dashed var(--color-accent);
+  color: var(--color-accent);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.verstopt {
+  display: none;
+}
+
+/* Spinner via de .verstopt span */
+button.loading .verstopt {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  border-top-color: transparent;
+  animation: draaien 0.7s linear infinite;
+}
+
+@keyframes draaien {
+  to { transform: rotate(360deg); }
 }
 
 /* =====================

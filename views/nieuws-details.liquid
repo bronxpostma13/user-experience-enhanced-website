@@ -40,7 +40,10 @@
 
         <input type="hidden" name="id" value="{{ news.id }}">
         <label>
-            <button type="submit" value="Versturen" class="placeholder-btn"></button>
+           <button type="submit" value="Versturen" class="placeholder-btn">
+                         Versturen
+              <span class="verstopt"></span>
+           </button>
       </label>
       </form>
     </article>
@@ -50,7 +53,7 @@
     <!-- Bestaande reacties -->
     <ul class="reacties-list">
     
-   {% for reactie in reactie %}
+   {% comment %} {% for reactie in reactie %}
       <li class="reactie-card">
           <div class="reactie-meta">
             <span class="reactie-naam">{{ reactie.name }}</span>
@@ -58,10 +61,27 @@
        
         <p class="reactie-tekst">{{ reactie.comment }}</p>
       </li>
-       {% endfor %}
+       {% endfor %} {% endcomment %}
+        {% for reactie in reactie %}
+         
+  <li class="reactie-card">
+     <p type="hidden">{{ reactie.id }}</p>
+    <div class="reactie-meta">
+      <span class="reactie-naam">{{ reactie.name }}</span>
+      <span class="reactie-datum">{{ news.date | date: "%d-%m-%Y"}}</span>
+    </div>
+    <p class="reactie-tekst">{{ reactie.comment }}</p>
+
+    <form action="/nieuws/{{ reactie.id }}/{{ news.slug }}/verwijder" method="POST">
+      <input type="hidden" name="comment_id" value="{{ reactie.id }}">
+      <button type="submit" class="delete-knop">Verwijder</button>
+    </form>
+  </li>
+{% endfor %}
      
       </ul>
   </section>
   </section>
+ 
     {% render 'partials/nav.liquid' %}
 {% render 'partials/foot.liquid' %}

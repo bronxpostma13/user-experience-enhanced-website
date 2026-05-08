@@ -89,6 +89,7 @@ padding: 20px;
     color: var(--text-color-2);
     font-size: var(--font-size-xs);
     }
+    
 
 
 
@@ -194,12 +195,14 @@ text-decoration:none;
 color:var(--background-color-6);
 font-size:var(--font-size-xs);
 justify-self: space-evenly;
-}
 
-.nav-item span{
+span{
 font-size:0.75rem;
 margin-top:4px;
 }
+}
+
+
 
 /* =====================
    Responsive — wider screens
